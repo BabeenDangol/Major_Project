@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:rental/colors/colors.dart';
-import 'package:rental/screen/postlisting.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:rental/screen/Tenant_view.dart';
-import 'package:rental/screen/search.dart';
-import 'package:rental/screen/setting.dart';
-
-import '../../screen/login.dart';
+import 'package:rental/screen/Tenantpages/Tenant_view.dart';
+import '../../screen/Tenantpages/aboutus.dart';
+import '../../screen/Tenantpages/postlisting.dart';
+import '../../screen/Tenantpages/search.dart';
+import '../../screen/Tenantpages/setting.dart';
+import '../../screen/login_register/login.dart';
+import '../../utils/route_names.dart';
 
 class TenantBottombar extends StatefulWidget {
   TenantBottombar({super.key});
@@ -24,6 +25,7 @@ class _TenantBottombarState extends State<TenantBottombar> {
       TenantViewPage(),
       Search(),
       PostListing(),
+      AboutUs(),
       Setting(),
     ];
   }
@@ -35,7 +37,7 @@ class _TenantBottombarState extends State<TenantBottombar> {
       bottomNavigationBar: Container(
         height: 80,
         child: BottomNavigationBar(
-          backgroundColor: tdpurple2,
+          backgroundColor: Color.fromARGB(255, 69, 101, 95),
           selectedItemColor: tdpurple3,
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
@@ -58,22 +60,15 @@ class _TenantBottombarState extends State<TenantBottombar> {
               label: "Post Listing",
             ),
             BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "About us",
+            ),
+            BottomNavigationBarItem(
               icon: Icon(Icons.settings_outlined),
               label: "Setting",
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Future<void> logout(BuildContext context) async {
-    CircularProgressIndicator();
-    await FirebaseAuth.instance.signOut();
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LoginPage(),
       ),
     );
   }

@@ -6,6 +6,9 @@ class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavigationDrawer(
+        children: [],
+      ),
       appBar: AppBar(
         title: Text("Setting"),
       ),

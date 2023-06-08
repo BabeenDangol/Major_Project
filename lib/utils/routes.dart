@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:rental/Components/TenantNavBar/bottomnav_login.dart';
-import 'package:rental/screen/Tenant_view.dart';
-import 'package:rental/screen/aboutus.dart';
-import 'package:rental/screen/login.dart';
-import 'package:rental/screen/register.dart';
-import 'package:rental/screen/renter_view.dart';
-import 'package:rental/screen/search.dart';
-import 'package:rental/screen/setting.dart';
+import 'package:rental/screen/Tenantpages/aboutus.dart';
+import 'package:rental/screen/Tenantpages/postlisting.dart';
+import 'package:rental/screen/Tenantpages/postpageview.dart';
+import 'package:rental/screen/Tenantpages/search.dart';
+import 'package:rental/screen/Tenantpages/setting.dart';
+
 import 'package:rental/utils/route_names.dart';
-import '../screen/Home.dart';
+
+import '../screen/Tenantpages/Tenant_view.dart';
+import '../screen/login_register/login.dart';
+import '../screen/login_register/register.dart';
+import '../screen/renter/renter_view.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RouteName.home:
-        {
-          return MaterialPageRoute(
-            builder: (context) => Home(),
-          );
-        }
       case RouteName.login:
         {
           return MaterialPageRoute(
@@ -49,6 +46,12 @@ class Routes {
             builder: (context) => Setting(),
           );
         }
+      case RouteName.listing:
+        {
+          return MaterialPageRoute(
+            builder: (context) => PostListing(),
+          );
+        }
       case RouteName.search:
         {
           return MaterialPageRoute(
@@ -65,6 +68,12 @@ class Routes {
         {
           return MaterialPageRoute(
             builder: (context) => TenantBottombar(),
+          );
+        }
+      case RouteName.postview:
+        {
+          return MaterialPageRoute(
+            builder: (context) => PostPageView(),
           );
         }
       default:

@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rental/colors/colors.dart';
-import 'Home.dart';
+
 import 'login.dart';
 // import 'model.dart';
 
@@ -464,6 +464,6 @@ class _RegisterState extends State<Register> {
       'number': mobile,
     });
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => Home()));
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

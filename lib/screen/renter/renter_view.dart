@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import 'login.dart';
+import '../login_register/login.dart';
 
 class RenterViewPage extends StatefulWidget {
   const RenterViewPage({super.key});

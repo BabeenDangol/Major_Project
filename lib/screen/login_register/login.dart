@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rental/Components/TenantNavBar/bottomnav_login.dart';
-import 'package:rental/screen/Home.dart';
-import 'package:rental/screen/renter_view.dart';
+
 import 'package:rental/colors/colors.dart';
-import 'package:rental/screen/Tenant_view.dart';
+
 import 'package:rental/utils/route_names.dart';
 
+import '../renter/renter_view.dart';
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
