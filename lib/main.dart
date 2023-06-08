@@ -22,12 +22,10 @@ class _MyAppState extends State<MyApp> {
     SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
-      initialRoute: RouteName.home,
+      initialRoute: RouteName.tenantbottomnav,
       onGenerateRoute: Routes.generateRoute,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.blue[900],
-      ),
+      theme: ThemeData(useMaterial3: true),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:rental/Components/TenantNavBar/bottomnav_login.dart';
 import 'package:rental/screen/Home.dart';
 import 'package:rental/screen/renter_view.dart';
 import 'package:rental/colors/colors.dart';
@@ -162,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
       controller: emailController,
       decoration: InputDecoration(
         filled: true,
-        fillColor: tdpurple3,
+        fillColor: Colors.white,
         hintText: 'Email',
         hintStyle: TextStyle(fontFamily: 'JetBrainsMono'),
         enabled: true,
@@ -208,7 +209,7 @@ class _LoginPageState extends State<LoginPage> {
               });
             }),
         filled: true,
-        fillColor: tdpurple3,
+        fillColor: Colors.white,
         hintText: 'Password',
         hintStyle: TextStyle(fontFamily: 'JetBrainsMono'),
         enabled: true,
@@ -308,11 +309,9 @@ class _LoginPageState extends State<LoginPage> {
             ),
           );
         } else {
-          Navigator.pushReplacement(
+          Navigator.pushNamed(
             context,
-            MaterialPageRoute(
-              builder: (context) => TenantViewPage(),
-            ),
+            RouteName.tenantbottomnav,
           );
         }
       } else {
@@ -332,7 +331,22 @@ class _LoginPageState extends State<LoginPage> {
         route();
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
-          print('No user found for that email.');
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: const Text("Invalid input"),
+              content: const Text(
+                  "Please make sure the Email and Password was Correctly entered."),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Okay"))
+              ],
+            ),
+          );
+          //print('No user found for that email.');
         } else if (e.code == 'wrong-password') {
           print('Wrong password provided for that user.');
         }
